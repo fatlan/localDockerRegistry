@@ -10,6 +10,11 @@
 
 Örnek **domain** olarak “**docker.fatlan.com**” kullanılmıştır.
 
+**Docker image**'ları aşağıdaki gibidir;
+
+- https://hub.docker.com/_/registry
+- https://hub.docker.com/r/klausmeyer/docker-registry-browser/
+
 Kuruluma geçmeden önce güvenli kurulum olduğu için **ssl** sertifikalarınız(**domain.crt**, **domain.key**) mevcut olmalıdır. Bu sertifika **authority confirmed** olabilir yada **self sign** olabilir. Burada önemli olan kısım **domain.crt** dosyasının içinde ilk olarak domain sertifika **key**’i akabinde kök sertifika **key**’i olmalıdır. Yoksa **registry**’e **images push** ettiğinizde “**x509: certificate signed by unknown authority**” hatası alırsınız.
 
 Sertifikalarınızı “**/home/fatlan/certs**” klasörünün altına taşıyın.
