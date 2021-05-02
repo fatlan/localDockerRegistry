@@ -1,6 +1,6 @@
 # Docker Rate Limit'e karşı Güvenli Local Docker Registry Kurulumu
 
-![Crepe](ss/dock-reg01.png)
+![Crepe](ss/dock-reg03.png)
 
 **Docker registry docker images**’larının depolandığı sistemdir. **Docker images**’larını **pull** ile çekip, **push** ile de gönderip paylaştığımız sistemdir. Hali hazırda **docker** resmi olarak [https://hub.docker.com/](https://hub.docker.com/) dan binlerce özel yada genel, kullanıma açtığı **images**’lar bulunmaktadır. Bizlerde bu sistemi kullanmaktayız. Özellikle **docker**'ın **image**'lere **pull rate limit**'i koymasıyla [https://docs.docker.com/docker-hub/download-rate-limit/](https://docs.docker.com/docker-hub/download-rate-limit/) **yerel registry** kullanımı daha da elzem olmuştur.
 
@@ -41,9 +41,11 @@ Registry container’ımızın çalıştığını “**sudo docker ps -a**” ko
 
 ![Crepe](ss/dock-reg02.png)
 
-Şimdi kurulumu doğrulamak için **pull** ve **push** yöntemlerini de dahil ederek test edelim. Ayrıca **https://docker.fatlan.com/v2/_catalog** ve **http://docker.fatlan.com** adresinden de kontrol edebilirsiniz, tabi siz kendi belirlediğiniz **domain name**‘i girmelisiniz.
+Ayrıca **https://docker.fatlan.com/v2/_catalog** ve **http://docker.fatlan.com** adresinden de kontrol edebilirsiniz, tabi siz kendi belirlediğiniz **domain name**‘i girmelisiniz.
 
-İlk önce **hello-world images**’ını **docker hub**’tan **pull** edelim.
+![Crepe](ss/dock-reg01.png)
+
+Şimdi kurulumu doğrulamak için **pull** ve **push** yöntemlerini de dahil ederek test edelim. İlk önce **hello-world images**’ını **docker hub**’tan **pull** edelim.
 
 ~~~
 sudo docker pull hello-world
@@ -64,5 +66,5 @@ sudo docker push docker.fatlan.com/my-hello-world
 Son olarak bu **images**’ımızı yani kendi **yerel registry**’ımızdan **pull** edelim ve bitirelim.
 
 ~~~
-sudo docker pull docker.fatlan.com:443/my-hello-world
+sudo docker pull docker.fatlan.com/my-hello-world
 ~~~
